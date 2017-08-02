@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,8 +21,51 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tiz-KB-WIS">
+                                <rect key="frame" x="32" y="56" width="311" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="btw-9w-StX">
+                                <rect key="frame" x="32" y="106" width="311" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ifG-iT-OSx">
+                                <rect key="frame" x="32" y="156" width="311" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="88d-Os-STF">
+                                <rect key="frame" x="162.5" y="318" width="49" height="30"/>
+                                <state key="normal" title="Submit"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="btw-9w-StX" secondAttribute="trailing" constant="16" id="A0n-pm-57M"/>
+                            <constraint firstItem="ifG-iT-OSx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="16" id="AUL-SI-G8r"/>
+                            <constraint firstItem="Tiz-KB-WIS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="16" id="CJt-Do-7Y0"/>
+                            <constraint firstItem="88d-Os-STF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="LLP-xm-gPU"/>
+                            <constraint firstItem="Tiz-KB-WIS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="36" id="SWd-cs-4hE"/>
+                            <constraint firstItem="88d-Os-STF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UO9-p2-Mel"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ifG-iT-OSx" secondAttribute="trailing" constant="16" id="bve-rL-Xd3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Tiz-KB-WIS" secondAttribute="trailing" constant="16" id="hXg-oe-ajs"/>
+                            <constraint firstItem="btw-9w-StX" firstAttribute="bottom" secondItem="ifG-iT-OSx" secondAttribute="top" constant="-20" id="ncb-6h-l1r"/>
+                            <constraint firstItem="btw-9w-StX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="16" id="plf-Zg-d1T"/>
+                            <constraint firstItem="btw-9w-StX" firstAttribute="top" secondItem="Tiz-KB-WIS" secondAttribute="bottom" constant="20" id="qU7-TC-4Zx"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="btw-9w-StX" id="x8g-7P-EGm"/>
+                        <outlet property="nameTextField" destination="Tiz-KB-WIS" id="TiS-WW-nZT"/>
+                        <outlet property="passwordTextField" destination="ifG-iT-OSx" id="Le6-Im-BEg"/>
+                        <outlet property="submitButton" destination="88d-Os-STF" id="mme-jJ-fpQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
