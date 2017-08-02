@@ -12,6 +12,9 @@
 		9B63861B1F32442700117378 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B63861A1F32442700117378 /* Assets.xcassets */; };
 		9B63861E1F32442700117378 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B63861C1F32442700117378 /* LaunchScreen.storyboard */; };
 		9B6386341F32448C00117378 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6386331F32448C00117378 /* FormViewController.swift */; };
+		9B6386371F32481100117378 /* FormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6386361F32481100117378 /* FormViewModel.swift */; };
+		9B6386391F32482E00117378 /* FormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6386381F32482E00117378 /* FormData.swift */; };
+		9B63863B1F32486300117378 /* FormState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B63863A1F32486300117378 /* FormState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,9 @@
 		9B6386241F32442700117378 /* FormInputsMVVMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FormInputsMVVMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B63862A1F32442700117378 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B6386331F32448C00117378 /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormViewController.swift; path = Form/FormViewController.swift; sourceTree = "<group>"; };
+		9B6386361F32481100117378 /* FormViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormViewModel.swift; path = Form/FormViewModel.swift; sourceTree = "<group>"; };
+		9B6386381F32482E00117378 /* FormData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormData.swift; path = Form/FormData.swift; sourceTree = "<group>"; };
+		9B63863A1F32486300117378 /* FormState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormState.swift; path = Form/FormState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +102,10 @@
 		9B6386351F3244AE00117378 /* Form */ = {
 			isa = PBXGroup;
 			children = (
+				9B6386381F32482E00117378 /* FormData.swift */,
+				9B63863A1F32486300117378 /* FormState.swift */,
 				9B6386331F32448C00117378 /* FormViewController.swift */,
+				9B6386361F32481100117378 /* FormViewModel.swift */,
 			);
 			name = Form;
 			sourceTree = "<group>";
@@ -204,8 +213,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B63863B1F32486300117378 /* FormState.swift in Sources */,
+				9B6386371F32481100117378 /* FormViewModel.swift in Sources */,
 				9B6386341F32448C00117378 /* FormViewController.swift in Sources */,
 				9B6386141F32442700117378 /* AppDelegate.swift in Sources */,
+				9B6386391F32482E00117378 /* FormData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
