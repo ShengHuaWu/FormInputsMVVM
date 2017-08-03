@@ -15,6 +15,7 @@
 		9B6386371F32481100117378 /* FormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6386361F32481100117378 /* FormViewModel.swift */; };
 		9B6386391F32482E00117378 /* FormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6386381F32482E00117378 /* FormData.swift */; };
 		9B63863B1F32486300117378 /* FormState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B63863A1F32486300117378 /* FormState.swift */; };
+		9B63863D1F32490500117378 /* FormViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B63863C1F32490500117378 /* FormViewModelTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		9B6386361F32481100117378 /* FormViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormViewModel.swift; path = Form/FormViewModel.swift; sourceTree = "<group>"; };
 		9B6386381F32482E00117378 /* FormData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormData.swift; path = Form/FormData.swift; sourceTree = "<group>"; };
 		9B63863A1F32486300117378 /* FormState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormState.swift; path = Form/FormState.swift; sourceTree = "<group>"; };
+		9B63863C1F32490500117378 /* FormViewModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewModelTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 		9B6386271F32442700117378 /* FormInputsMVVMTests */ = {
 			isa = PBXGroup;
 			children = (
+				9B63863C1F32490500117378 /* FormViewModelTest.swift */,
 				9B63862A1F32442700117378 /* Info.plist */,
 			);
 			path = FormInputsMVVMTests;
@@ -164,6 +167,7 @@
 					};
 					9B6386231F32442700117378 = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 9B63860F1F32442700117378;
 					};
@@ -225,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B63863D1F32490500117378 /* FormViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,10 +385,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = FormInputsMVVMTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shenghuawu.FormInputsMVVMTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FormInputsMVVM.app/FormInputsMVVM";
 			};
@@ -394,6 +401,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = FormInputsMVVMTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shenghuawu.FormInputsMVVMTests;
@@ -422,6 +430,7 @@
 				9B63862F1F32442700117378 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9B6386301F32442700117378 /* Build configuration list for PBXNativeTarget "FormInputsMVVMTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +439,7 @@
 				9B6386321F32442700117378 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
