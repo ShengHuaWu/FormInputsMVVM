@@ -10,9 +10,21 @@ import Foundation
 
 final class FormViewModel {
     // MARK: Properties
-    var state: FormState = .normal(.empty)
+    private(set) var state: FormState {
+        didSet {
+            callback(state)
+        }
+    }
+    
+    private let callback: (FormState) -> Void
     private let tolerance = 3
     private var attempts = 0
+    
+    // MARK: Designated Initializer
+    init(callback: @escaping (FormState) -> Void) {
+        self.callback = callback
+        self.state = .normal(.empty)
+    }
     
     // MARK: Public Methods
     func nameChanged(_ name: String?) {

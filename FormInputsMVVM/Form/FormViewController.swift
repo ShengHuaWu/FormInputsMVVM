@@ -15,8 +15,32 @@ final class FormViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
     
+    var viewModel: FormViewModel?
+    
     // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    // MARK: Actions
+    @IBAction func nameChanged(_ sender: UITextField) {
+        viewModel?.nameChanged(sender.text)
+    }
+    
+    @IBAction func emailChanged(_ sender: UITextField) {
+        viewModel?.emailChanged(sender.text)
+    }
+    
+    @IBAction func passwordChanged(_ sender: UITextField) {
+        viewModel?.passwordChanged(sender.text)
+    }
+    
+    @IBAction func subnitButtonPressed(_ sender: UIButton) {
+        viewModel?.submitButtonPressed()
+    }
+    
+    // MARK: Public Methods
+    func updateUI(state: FormState) {
+        
     }
 }
