@@ -11,6 +11,8 @@ import Foundation
 final class FormViewModel {
     // MARK: Properties
     var state: FormState = .normal(.empty)
+    private let tolerance = 3
+    private var attempts = 0
     
     // MARK: Public Methods
     func nameChanged(_ name: String?) {
@@ -32,9 +34,15 @@ final class FormViewModel {
     }
     
     func submitButtonPressed() {
+        guard attempts < tolerance else {
+            state = .tooManyAttempts
+            return
+        }
+        
         if state.isValid() {
             state = .success
         } else {
+            attempts += 1
             state = .failure
         }
     }

@@ -27,7 +27,7 @@ class FormViewModelTest: XCTestCase {
     }
     
     // MARK: Enabled Tests
-    func testInputsSuccessful() {
+    func testInputsSuccess() {
         viewModel.nameChanged("shane")
         
         XCTAssert(viewModel.state == .normal(FormData(name: "shane", email: nil, password: nil)))
@@ -43,5 +43,35 @@ class FormViewModelTest: XCTestCase {
         viewModel.submitButtonPressed()
         
         XCTAssert(viewModel.state == .success)
+    }
+    
+    func testInputsFailure() {
+        viewModel.nameChanged("shane")
+        
+        XCTAssert(viewModel.state == .normal(FormData(name: "shane", email: nil, password: nil)))
+        
+        viewModel.emailChanged("shane@gmail.com")
+        
+        XCTAssert(viewModel.state == .normal(FormData(name: "shane", email: "shane@gmail.com", password: nil)))
+        
+        viewModel.passwordChanged("thisismypassword1234")
+        
+        XCTAssert(viewModel.state == .normal(FormData(name: "shane", email: "shane@gmail.com", password: "thisismypassword1234")))
+        
+        viewModel.passwordChanged("")
+        
+        XCTAssert(viewModel.state == .normal(FormData(name: "shane", email: "shane@gmail.com", password: "")))
+        
+        viewModel.submitButtonPressed()
+        
+        XCTAssert(viewModel.state == .failure)
+    }
+    
+    func testTooMayAttempts() {
+        viewModel.submitButtonPressed()
+        viewModel.submitButtonPressed()
+        viewModel.submitButtonPressed()
+        
+        XCTAssert(viewModel.state == .tooManyAttempts)
     }
 }
