@@ -17,32 +17,41 @@ final class FormViewModel {
     }
     
     private let callback: (FormState) -> Void
+    private var formData: FormData = .empty {
+        didSet {
+            if formData.isValid {
+                state = .submitButtonIsEnabled(true)
+            } else {
+                state = .submitButtonIsEnabled(false)
+            }
+        }
+    }
     private let tolerance = 3
     private var attempts = 0
     
     // MARK: Designated Initializer
     init(callback: @escaping (FormState) -> Void) {
         self.callback = callback
-        self.state = .normal(.empty)
+        self.state = .submitButtonIsEnabled(false)
     }
     
     // MARK: Public Methods
     func nameChanged(_ name: String?) {
         guard let name = name else { return }
         
-        state.change(name: name)
+        formData.change(name: name)
     }
     
     func emailChanged(_ email: String?) {
         guard let email = email else { return }
         
-        state.change(email: email)
+        formData.change(email: email)
     }
     
     func passwordChanged(_ password: String?) {
         guard let password = password else { return }
         
-        state.change(password: password)
+        formData.change(password: password)
     }
     
     func submitButtonPressed() {
@@ -51,7 +60,7 @@ final class FormViewModel {
             return
         }
         
-        if state.isValid() {
+        if formData.isValid {
             state = .success
         } else {
             attempts += 1

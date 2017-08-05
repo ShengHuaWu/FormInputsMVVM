@@ -42,8 +42,8 @@ final class FormViewController: UIViewController {
     // MARK: Public Methods
     func updateUI(state: FormState) {
         switch state {
-        case let .normal(formData):
-            submitButton.isEnabled = formData.isValid()
+        case let .submitButtonIsEnabled(enabled):
+            submitButton.isEnabled = enabled
         case .success:
             print("Successful")
         case .failure:

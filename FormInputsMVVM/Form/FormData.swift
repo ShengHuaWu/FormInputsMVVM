@@ -23,7 +23,7 @@ extension FormData: Equatable {
 }
 
 extension FormData {
-    func isValid() -> Bool {
+    var isValid: Bool {
         guard let name = name, !name.isEmpty else { return false }
         
         guard let email = email, !email.isEmpty else { return false }
@@ -31,5 +31,29 @@ extension FormData {
         guard let password = password, !password.isEmpty else { return false }
         
         return true
+    }
+    
+    private func changing(name: String) -> FormData {
+        return FormData(name: name, email: email, password: password)
+    }
+    
+    mutating func change(name: String) {
+        self = changing(name: name)
+    }
+    
+    private func changing(email: String) -> FormData {
+        return FormData(name: name, email: email, password: password)
+    }
+    
+    mutating func change(email: String) {
+        self = changing(email: email)
+    }
+    
+    private func changing(password: String) -> FormData {
+        return FormData(name: name, email: email, password: password)
+    }
+    
+    mutating func change(password: String) {
+        self = changing(password: password)
     }
 }

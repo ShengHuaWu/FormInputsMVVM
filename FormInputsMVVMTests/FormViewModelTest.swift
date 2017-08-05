@@ -30,15 +30,15 @@ class FormViewModelTest: XCTestCase {
     func testInputsSuccess() {
         viewModel.nameChanged("shane")
         
-        XCTAssert(viewModel.state == .normal(FormData(name: "shane", email: nil, password: nil)))
+        XCTAssert(viewModel.state == .submitButtonIsEnabled(false))
         
         viewModel.emailChanged("shane@gmail.com")
         
-        XCTAssert(viewModel.state == .normal(FormData(name: "shane", email: "shane@gmail.com", password: nil)))
+        XCTAssert(viewModel.state == .submitButtonIsEnabled(false))
         
         viewModel.passwordChanged("thisismypassword1234")
         
-        XCTAssert(viewModel.state == .normal(FormData(name: "shane", email: "shane@gmail.com", password: "thisismypassword1234")))
+        XCTAssert(viewModel.state == .submitButtonIsEnabled(true))
         
         viewModel.submitButtonPressed()
         
@@ -48,19 +48,19 @@ class FormViewModelTest: XCTestCase {
     func testInputsFailure() {
         viewModel.nameChanged("shane")
         
-        XCTAssert(viewModel.state == .normal(FormData(name: "shane", email: nil, password: nil)))
+        XCTAssert(viewModel.state == .submitButtonIsEnabled(false))
         
         viewModel.emailChanged("shane@gmail.com")
         
-        XCTAssert(viewModel.state == .normal(FormData(name: "shane", email: "shane@gmail.com", password: nil)))
+        XCTAssert(viewModel.state == .submitButtonIsEnabled(false))
         
         viewModel.passwordChanged("thisismypassword1234")
         
-        XCTAssert(viewModel.state == .normal(FormData(name: "shane", email: "shane@gmail.com", password: "thisismypassword1234")))
+        XCTAssert(viewModel.state == .submitButtonIsEnabled(true))
         
         viewModel.passwordChanged("")
         
-        XCTAssert(viewModel.state == .normal(FormData(name: "shane", email: "shane@gmail.com", password: "")))
+        XCTAssert(viewModel.state == .submitButtonIsEnabled(false))
         
         viewModel.submitButtonPressed()
         
