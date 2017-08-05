@@ -35,7 +35,7 @@ final class FormViewController: UIViewController {
         viewModel?.passwordChanged(sender.text)
     }
     
-    @IBAction func subnitButtonPressed(_ sender: UIButton) {
+    @IBAction func submitButtonPressed(_ sender: UIButton) {
         viewModel?.submitButtonPressed()
     }
     
