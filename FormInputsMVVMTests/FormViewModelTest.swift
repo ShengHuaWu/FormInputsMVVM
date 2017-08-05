@@ -17,7 +17,7 @@ class FormViewModelTest: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        viewModel = FormViewModel()
+        viewModel = FormViewModel{ _ in }
     }
     
     override func tearDown() {
@@ -68,6 +68,7 @@ class FormViewModelTest: XCTestCase {
     }
     
     func testTooMayAttempts() {
+        viewModel.submitButtonPressed()
         viewModel.submitButtonPressed()
         viewModel.submitButtonPressed()
         viewModel.submitButtonPressed()
