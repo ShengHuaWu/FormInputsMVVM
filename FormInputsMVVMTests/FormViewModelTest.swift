@@ -67,6 +67,28 @@ class FormViewModelTest: XCTestCase {
         XCTAssert(viewModel.state == .failure)
     }
     
+    func testFailureThenSuccess() {
+        viewModel.submitButtonPressed()
+
+        XCTAssert(viewModel.state == .failure)
+
+        viewModel.nameChanged("shane")
+        
+        XCTAssert(viewModel.state == .submitButtonIsEnabled(false))
+        
+        viewModel.emailChanged("shane@gmail.com")
+        
+        XCTAssert(viewModel.state == .submitButtonIsEnabled(false))
+        
+        viewModel.passwordChanged("thisismypassword1234")
+        
+        XCTAssert(viewModel.state == .submitButtonIsEnabled(true))
+        
+        viewModel.submitButtonPressed()
+        
+        XCTAssert(viewModel.state == .success)
+    }
+    
     func testTooMayAttempts() {
         viewModel.submitButtonPressed()
         viewModel.submitButtonPressed()
