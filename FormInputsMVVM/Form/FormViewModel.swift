@@ -19,6 +19,8 @@ final class FormViewModel {
     private let callback: (FormState) -> Void
     private var formData: FormData = .empty {
         didSet {
+            if case .tooManyAttempts = state { return }
+            
             if formData.isValid {
                 state = .submitButtonIsEnabled(true)
             } else {

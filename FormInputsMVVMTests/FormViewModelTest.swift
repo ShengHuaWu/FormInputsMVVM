@@ -96,5 +96,9 @@ class FormViewModelTest: XCTestCase {
         viewModel.submitButtonPressed()
         
         XCTAssert(viewModel.state == .tooManyAttempts)
+        
+        viewModel.nameChanged("shane")
+        
+        XCTAssert(viewModel.state == .tooManyAttempts)
     }
 }
