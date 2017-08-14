@@ -30,15 +30,15 @@ class FormViewModelTest: XCTestCase {
     func testInputsSuccess() {
         viewModel.nameChanged("shane")
         
-        XCTAssert(viewModel.state.buttonIsEnabled == false)
+        XCTAssert(viewModel.state.submitButtonIsEnabled == false)
         
         viewModel.emailChanged("shane@gmail.com")
         
-        XCTAssert(viewModel.state.buttonIsEnabled == false)
+        XCTAssert(viewModel.state.submitButtonIsEnabled == false)
         
         viewModel.passwordChanged("thisismypassword1234")
         
-        XCTAssert(viewModel.state.buttonIsEnabled == true)
+        XCTAssert(viewModel.state.submitButtonIsEnabled == true)
         
         viewModel.submitButtonPressed()
         
@@ -48,19 +48,19 @@ class FormViewModelTest: XCTestCase {
     func testInputsFailure() {
         viewModel.nameChanged("shane")
         
-        XCTAssert(viewModel.state.buttonIsEnabled == false)
+        XCTAssert(viewModel.state.submitButtonIsEnabled == false)
         
         viewModel.emailChanged("shane@gmail.com")
         
-        XCTAssert(viewModel.state.buttonIsEnabled == false)
+        XCTAssert(viewModel.state.submitButtonIsEnabled == false)
         
         viewModel.passwordChanged("thisismypassword1234")
         
-        XCTAssert(viewModel.state.buttonIsEnabled == true)
+        XCTAssert(viewModel.state.submitButtonIsEnabled == true)
         
         viewModel.passwordChanged("")
         
-        XCTAssert(viewModel.state.buttonIsEnabled == false)
+        XCTAssert(viewModel.state.submitButtonIsEnabled == false)
         
         viewModel.submitButtonPressed()
         
@@ -74,15 +74,15 @@ class FormViewModelTest: XCTestCase {
 
         viewModel.nameChanged("shane")
         
-        XCTAssert(viewModel.state.buttonIsEnabled == false)
+        XCTAssert(viewModel.state.submitButtonIsEnabled == false)
         
         viewModel.emailChanged("shane@gmail.com")
         
-        XCTAssert(viewModel.state.buttonIsEnabled == false)
+        XCTAssert(viewModel.state.submitButtonIsEnabled == false)
         
         viewModel.passwordChanged("thisismypassword1234")
         
-        XCTAssert(viewModel.state.buttonIsEnabled == true)
+        XCTAssert(viewModel.state.submitButtonIsEnabled == true)
         
         viewModel.submitButtonPressed()
         
@@ -98,8 +98,10 @@ class FormViewModelTest: XCTestCase {
         XCTAssert(viewModel.state.resultText == "Too Many Attempts")
         
         viewModel.nameChanged("shane")
+        viewModel.emailChanged("shane@gmail.com")
+        viewModel.passwordChanged("thisismypassword1234")
         
         XCTAssert(viewModel.state.resultText == "Too Many Attempts")
-        XCTAssert(viewModel.state.buttonIsEnabled == false)
+        XCTAssert(viewModel.state.submitButtonIsEnabled == false)
     }
 }

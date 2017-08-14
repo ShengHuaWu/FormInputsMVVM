@@ -9,19 +9,19 @@
 import Foundation
 
 struct FormState {
-    var buttonIsEnabled: Bool
+    var submitButtonIsEnabled: Bool
     var resultText: String?
     var formData: FormData {
         didSet {
             if resultText == "Too Many Attempts" {
-                buttonIsEnabled = false
+                submitButtonIsEnabled = false
                 return
             }
             
             if formData.isValid {
-                buttonIsEnabled = true
+                submitButtonIsEnabled = true
             } else {
-                buttonIsEnabled = false
+                submitButtonIsEnabled = false
             }
         }
     }
@@ -29,6 +29,6 @@ struct FormState {
 
 extension FormState: Equatable {
     static func ==(lhs: FormState, rhs: FormState) -> Bool {
-        return lhs.buttonIsEnabled == rhs.buttonIsEnabled && lhs.resultText == rhs.resultText && lhs.formData == rhs.formData
+        return lhs.submitButtonIsEnabled == rhs.submitButtonIsEnabled && lhs.resultText == rhs.resultText && lhs.formData == rhs.formData
     }
 }

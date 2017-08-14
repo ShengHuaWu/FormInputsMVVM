@@ -41,7 +41,7 @@ final class FormViewController: UIViewController {
     
     // MARK: Public Methods
     func updateUI(state: FormState) {
-        submitButton.isEnabled = state.buttonIsEnabled
+        submitButton.isEnabled = state.submitButtonIsEnabled
         
         guard let text = state.resultText else { return }
         

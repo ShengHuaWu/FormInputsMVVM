@@ -10,7 +10,7 @@ import Foundation
 
 final class FormViewModel {
     // MARK: Properties
-    private(set) var state: FormState = FormState(buttonIsEnabled: false, resultText: nil, formData: .empty) {
+    private(set) var state: FormState = FormState(submitButtonIsEnabled: false, resultText: nil, formData: .empty) {
         didSet {
             callback(state)
         }
