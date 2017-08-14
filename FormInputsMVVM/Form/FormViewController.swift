@@ -41,19 +41,12 @@ final class FormViewController: UIViewController {
     
     // MARK: Public Methods
     func updateUI(state: FormState) {
-        switch state {
-        case let .submitButtonIsEnabled(enabled):
-            submitButton.isEnabled = enabled
-        case .success:
-            let alert = UIAlertController(message: "Success")
-            present(alert, animated: true, completion: nil)
-        case .failure:
-            let alert = UIAlertController(message: "Failure")
-            present(alert, animated: true, completion: nil)
-        case .tooManyAttempts:
-            let alert = UIAlertController(message: "Too Many Attempts")
-            present(alert, animated: true, completion: nil)
-        }
+        submitButton.isEnabled = state.buttonIsEnabled
+        
+        guard let text = state.resultText else { return }
+        
+        let alert = UIAlertController(message: text)
+        present(alert, animated: true, completion: nil)
     }
 }
 

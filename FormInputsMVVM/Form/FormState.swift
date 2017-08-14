@@ -8,21 +8,27 @@
 
 import Foundation
 
-enum FormState {
-    case submitButtonIsEnabled(Bool)
-    case success
-    case failure
-    case tooManyAttempts
+struct FormState {
+    var buttonIsEnabled: Bool
+    var resultText: String?
+    var formData: FormData {
+        didSet {
+            if resultText == "Too Many Attempts" {
+                buttonIsEnabled = false
+                return
+            }
+            
+            if formData.isValid {
+                buttonIsEnabled = true
+            } else {
+                buttonIsEnabled = false
+            }
+        }
+    }
 }
 
 extension FormState: Equatable {
     static func ==(lhs: FormState, rhs: FormState) -> Bool {
-        switch (lhs, rhs) {
-        case let (.submitButtonIsEnabled(left), .submitButtonIsEnabled(right)): return left == right
-        case (.success, .success): return true
-        case (.failure, .failure): return true
-        case (.tooManyAttempts, .tooManyAttempts): return true
-        default: return false
-        }
+        return lhs.buttonIsEnabled == rhs.buttonIsEnabled && lhs.resultText == rhs.resultText && lhs.formData == rhs.formData
     }
 }
