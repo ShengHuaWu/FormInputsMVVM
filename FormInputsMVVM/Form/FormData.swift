@@ -27,7 +27,7 @@ extension FormData {
     var isValid: Bool {
         guard let name = name, !name.isEmpty else { return false }
         
-        guard let email = email, !email.isEmpty else { return false }
+        guard let email = email, !email.isEmpty, email.contains("@") else { return false }
         
         guard let password = password, !password.isEmpty else { return false }
         
