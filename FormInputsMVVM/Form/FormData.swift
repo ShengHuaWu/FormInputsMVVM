@@ -23,7 +23,16 @@ extension FormData: Equatable {
 }
 
 extension FormData {
-    // Now, we only check the existence of each string.
+    var isEmpty: Bool {
+        guard let name = name, !name.isEmpty else { return false }
+        
+        guard let email = email, !email.isEmpty else { return false }
+        
+        guard let password = password, !password.isEmpty else { return false }
+        
+        return true
+    }
+    
     var isValid: Bool {
         guard let name = name, !name.isEmpty else { return false }
         
