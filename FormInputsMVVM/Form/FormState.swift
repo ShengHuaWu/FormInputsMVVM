@@ -18,7 +18,7 @@ struct FormState {
                 return
             }
             
-            if formData.isEmpty {
+            if !formData.isEmpty {
                 submitButtonIsEnabled = true
             } else {
                 submitButtonIsEnabled = false

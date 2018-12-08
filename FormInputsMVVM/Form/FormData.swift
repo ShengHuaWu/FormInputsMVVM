@@ -24,13 +24,13 @@ extension FormData: Equatable {
 
 extension FormData {
     var isEmpty: Bool {
-        guard let name = name, !name.isEmpty else { return false }
+        guard let name = name, !name.isEmpty else { return true }
         
-        guard let email = email, !email.isEmpty else { return false }
+        guard let email = email, !email.isEmpty else { return true }
         
-        guard let password = password, !password.isEmpty else { return false }
+        guard let password = password, !password.isEmpty else { return true }
         
-        return true
+        return false
     }
     
     var isValid: Bool {
