@@ -16,6 +16,7 @@
 		9B6386391F32482E00117378 /* FormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6386381F32482E00117378 /* FormData.swift */; };
 		9B63863B1F32486300117378 /* FormState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B63863A1F32486300117378 /* FormState.swift */; };
 		9B63863D1F32490500117378 /* FormViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B63863C1F32490500117378 /* FormViewModelTest.swift */; };
+		9B9816CB21E52BB100239D7D /* Prelude.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B9816CA21E52BB100239D7D /* Prelude.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +28,19 @@
 			remoteInfo = FormInputsMVVM;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9B9816C821E52B7500239D7D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9B6386101F32442700117378 /* FormInputsMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FormInputsMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +56,7 @@
 		9B6386381F32482E00117378 /* FormData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormData.swift; path = Form/FormData.swift; sourceTree = "<group>"; };
 		9B63863A1F32486300117378 /* FormState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormState.swift; path = Form/FormState.swift; sourceTree = "<group>"; };
 		9B63863C1F32490500117378 /* FormViewModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewModelTest.swift; sourceTree = "<group>"; };
+		9B9816CA21E52BB100239D7D /* Prelude.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Prelude.framework; path = Carthage/Build/iOS/Prelude.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B9816CB21E52BB100239D7D /* Prelude.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +84,7 @@
 				9B6386121F32442700117378 /* FormInputsMVVM */,
 				9B6386271F32442700117378 /* FormInputsMVVMTests */,
 				9B6386111F32442700117378 /* Products */,
+				9B9816C921E52BB100239D7D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,6 +130,14 @@
 			name = Form;
 			sourceTree = "<group>";
 		};
+		9B9816C921E52BB100239D7D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9B9816CA21E52BB100239D7D /* Prelude.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -123,6 +148,8 @@
 				9B63860C1F32442700117378 /* Sources */,
 				9B63860D1F32442700117378 /* Frameworks */,
 				9B63860E1F32442700117378 /* Resources */,
+				9B9816C821E52B7500239D7D /* Embed Frameworks */,
+				9B9816CC21E52BC400239D7D /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -212,6 +239,29 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9B9816CC21E52BC400239D7D /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Prelude.framework",
+			);
+			name = Carthage;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Prelude.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9B63860C1F32442700117378 /* Sources */ = {
@@ -377,6 +427,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = FormInputsMVVM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shenghuawu.FormInputsMVVM;
@@ -390,6 +444,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = FormInputsMVVM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shenghuawu.FormInputsMVVM;

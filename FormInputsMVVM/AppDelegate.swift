@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Prelude
 
 // MARK: - App Delegate
 @UIApplicationMain
@@ -20,6 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let formViewController = window?.rootViewController as? FormViewController else { return true }
         
         router.configure(formViewController)
+        
+        let c1 = Changeable(value: true)
+        let c2 = c1.flatMap { bool in
+            return Changeable(hasChanged: bool, value: "Oh my god")
+        }
+        print(c2.value)
+        
         return true
     }
 }
